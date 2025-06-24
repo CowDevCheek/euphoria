@@ -6,8 +6,6 @@ import datetime
 from google.genai import types
 from google.adk.tools.tool_context import ToolContext
 from demand_predict_agent.agent import forecast_demand
-from google.cloud import bigquery
-
 
 
 model_name = os.getenv("MODEL")
