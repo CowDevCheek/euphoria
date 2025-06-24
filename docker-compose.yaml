@@ -1,0 +1,26 @@
+services:
+  adk-server:
+    build:
+      context: .
+    container_name: adk-server
+    command: adk api_server     # run this at runtime
+    ports:
+      - "5000:5000"
+    networks:
+      - adknet
+
+  streamlit-app:
+    build:
+      context: .
+    container_name: streamlit-ui
+    depends_on:
+      - adk-server
+    command: streamlit run apps/gui_app.py --server.port 8080 --server.enableCORS false
+    ports:
+      - "8080:8080"
+    networks:
+      - adknet
+
+networks:
+  adknet:
+    driver: bridge

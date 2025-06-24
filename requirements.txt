@@ -1,0 +1,8 @@
+streamlit
+requests
+python-dotenv
+pandas
+numpy
+google-cloud-bigquery
+google-adk
+google-generativeai
